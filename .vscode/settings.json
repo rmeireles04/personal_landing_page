@@ -1,0 +1,37 @@
+{
+	"prettier.singleQuote": true,
+	"prettier.trailingComma": "all",
+	"prettier.printWidth": 80,
+	"prettier.tabWidth": 2,
+	"plugins": ["prettier-plugin-tailwindcss"],
+
+	"scripts": {
+		"format": "prettier --write ."
+	},
+
+	"[javascript]": {
+		"editor.formatOnPaste": true,
+		"editor.formatOnSave": true,
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"[typescript]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode",
+		"editor.formatOnPaste": true,
+		"editor.formatOnSave": true
+	},
+	"[python]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode",
+		"editor.formatOnPaste": true,
+		"editor.formatOnSave": true
+	},
+	"[java]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode",
+		"editor.formatOnPaste": true,
+		"editor.formatOnSave": true
+	},
+	"[javascriptreact]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode",
+		"editor.formatOnPaste": true,
+		"editor.formatOnSave": true
+	}
+}
