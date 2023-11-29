@@ -2,50 +2,14 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import React, { useState } from 'react'
-import { POST } from '../api/send/route'
-import { handleSubmit } from './HandleSubmit'
+import EmailFormLogic from './EmailFormLogic'
+
 //import GithubIcon from '../../../public/github-icon.svg'
 //import LinkedinIcon from '../../../public/linkedin-icon.svg'
 
 const EmailSection = () => {
-  // State to manage form data and success message
-  const [formData, setFormData] = useState({
-    email: '', // Initial state for email field
-    subject: '', // Initial state for subject field
-    message: '', // Initial state for message field
-  })
-  const [successMessage, setSuccessMessage] = useState('') // State to manage success message
-
-  // Function to update form data on input change
-  const handleChange = (e) => {
-    // Update the corresponding form field in formData state when there's an input change
-    setFormData({ ...formData, [e.target.name]: e.target.value })
-  }
-
-  // Function to handle form submission
-  const handleSubmit = async (e) => {
-    e.preventDefault() // Prevent default form submission behavior (page reload)
-
-    try {
-      // Call the POST function to send email with formData
-      const response = await POST(formData)
-
-      if (response.success) {
-        // If the email is sent successfully:
-        // Clear form fields and set a success message
-        setFormData({ email: '', subject: '', message: '' })
-        setSuccessMessage('Email sent successfully!')
-      } else {
-        // Handle error scenario or display an error message
-        console.error('Error sending email:', response.error)
-        // Additional logic for error handling or error message display
-      }
-    } catch (error) {
-      // Handle error scenario or display an error message
-      console.error('Error sending email:', error)
-      // Additional logic for error handling or error message display
-    }
-  }
+  const { formData, successMessage, handleChange, handleSubmit } =
+    EmailFormLogic()
 
   return (
     <section
